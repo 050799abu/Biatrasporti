@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIA Trasporti & Traslochi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-hero { background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-hero text-white py-20 px-4 text-center">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="mia-foto.jpg" alt="Titolare BIA Trasporti" class="w-32 h-32 rounded-full border-4 border-blue-400 shadow-lg mb-6 object-cover bg-white">
+            
+            <h1 class="text-5xl font-extrabold tracking-tight mb-4">BIA Trasporti & Traslochi</h1>
+            <p class="text-xl text-blue-200 mb-2">La tua soluzione rapida e sicura per ogni spostamento.</p>
+            
+            <div class="mt-6 flex items-center justify-center space-x-2 text-blue-100 bg-white/10 px-6 py-2 rounded-full backdrop-blur-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span>Via delle Allodole 12, Busto Arsizio (VA) 21052</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto py-16 px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Prenota il tuo Servizio</h2>
+            
+            <form id="bookingForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nome e Cognome</label>
+                        <input type="text" id="nome" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Telefono</label>
+                        <input type="tel" id="telefono" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Scegli la Data ("Calendario")</label>
+                    <input type="date" id="data" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Indirizzo di partenza e arrivo / Note</label>
+                    <textarea id="note" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Es. Da Busto Arsizio a Milano..."></textarea>
+                </div>
+
+                <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button type="button" onclick="inviaPrenotazione('Trasporto')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex items-center justify-center space-x-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        <span>Prenota TRASPORTO</span>
+                    </button>
+                    
+                    <button type="button" onclick="inviaPrenotazione('Trasloco')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex items-center justify-center space-x-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        <span>Prenota TRASLOCO</span>
+                    </button>
+                </div>
+                <p class="text-xs text-center text-gray-500 mt-2">Cliccando, si aprirà la tua app email con i dati precompilati.</p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+        <p>&copy; 2026 BIA Trasporti & Traslochi. Tutti i diritti riservati.</p>
+        <p>Via delle Allodole 12, 21052 Busto Arsizio (VA)</p>
+    </footer>
+
+    <script>
+        function inviaPrenotazione(tipo) {
+            // Inserisci QUI la tua email aziendale
+            const tuaEmail = "info@biatrasporti.it"; 
+            
+            const nome = document.getElementById('nome').value;
+            const telefono = document.getElementById('telefono').value;
+            const data = document.getElementById('data').value;
+            const note = document.getElementById('note').value;
+
+            if(!nome || !telefono || !data) {
+                alert("Per favore, compila almeno Nome, Telefono e Data prima di prenotare.");
+                return;
+            }
+
+            const subject = encodeURIComponent(`Nuova prenotazione ${tipo} da ${nome}`);
+            const body = encodeURIComponent(
+                `Ciao BIA Trasporti,\n\nVorrei prenotare un ${tipo}.\n\nEcco i miei dati:\nNome: ${nome}\nTelefono: ${telefono}\nData richiesta: ${data}\n\nDettagli/Indirizzi:\n${note}\n\nIn attesa di conferma.`
+            );
+
+            // Apre l'app di posta elettronica
+            window.location.href = `mailto:${tuaEmail}?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
